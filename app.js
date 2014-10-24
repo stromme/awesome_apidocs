@@ -1251,23 +1251,25 @@ if (!module.parent) {
 
             server = https.createServer(httpsOptions, app);
             server.listen.apply(server, args);
+            console.log("Listen HTTPS %d",args[0]);
         } else if (config.https && config.https.on) {
             console.error("No https key or certificate specified.");
             process.exit(1);
         } else {
             server = http.createServer(app);
             server.listen.apply(server, args);
+            console.log("Listen HTTP %d",args[0]);
         }
     }
 }
 
 // use production (Heroku) port if set 
 // Only listen on $ node app.js
-if (!module.parent) {
-    //var port = process.env.PORT || config.port;
-    var port = config.port;
+/*if (!module.parent) {
+    var port = process.env.PORT || config.port;
+    //var port = config.port;
     var l = app.listen(port, config.address);
     l.on('listening', function(err) {
         console.log("Express server listening on port %d", port);
     });
-}
+}*/
