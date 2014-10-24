@@ -1261,19 +1261,9 @@ if (!module.parent) {
             process.exit(1);
         } else {
             server = http.createServer(app);
+          console.log(args);
             server.listen.apply(server, args);
             console.log("Listen HTTP %d",args[0]);
         }
     }
 }
-
-// use production (Heroku) port if set 
-// Only listen on $ node app.js
-/*if (!module.parent) {
-    var port = process.env.PORT || config.port;
-    //var port = config.port;
-    var l = app.listen(port, config.address);
-    l.on('listening', function(err) {
-        console.log("Express server listening on port %d", port);
-    });
-}*/
