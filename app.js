@@ -77,6 +77,7 @@ try {
 //
 var defaultDB = '0';
 if(config.redis) {
+  console.log('redis');
     config.redis.database = config.redis.database || defaultDB;
 
     if (process.env.REDISTOGO_URL || process.env.REDIS_URL) {
@@ -94,6 +95,9 @@ if(config.redis) {
             console.log("Error " + err);
         }
     });
+}
+else {
+  console.log('no redis');
 }
 
 //
