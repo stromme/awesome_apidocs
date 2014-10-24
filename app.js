@@ -1265,8 +1265,8 @@ if (!module.parent) {
 // Only listen on $ node app.js
 if (!module.parent) {
     var port = process.env.PORT || config.port;
-    var l = app.listen(port);
+    var l = app.listen(port, config.address);
     l.on('listening', function(err) {
-        console.log("Express server listening on port %d", app.address().port);
+        console.log("Express server listening on port %d", port);
     });
 }
