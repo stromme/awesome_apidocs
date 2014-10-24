@@ -1260,9 +1260,10 @@ if (!module.parent) {
             console.error("No https key or certificate specified.");
             process.exit(1);
         } else {
-            server = http.createServer(app);
-          console.log(args);
-            server.listen.apply(server, args);
+            //server = http.createServer(app);
+            //console.log(args);
+            //server.listen.apply(server, args);
+            app.listen(args[0]);
             console.log("Listen HTTP %d",args[0]);
         }
     }
