@@ -1262,5 +1262,11 @@ if (!module.parent) {
 }
 
 // use production (Heroku) port if set 
-var port = process.env.PORT || config.port; 
-app.listen(port, config.address);
+// Only listen on $ node app.js
+if (!module.parent) {
+    var port = process.env.PORT || config.port;
+    var l = app.listen(port);
+    l.on('listening', function(err) {
+        console.log("Express server listening on port %d", app.address().port);
+    });
+}
