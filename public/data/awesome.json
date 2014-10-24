@@ -2,8 +2,8 @@
 	"name": "Awesome List API",
 	"description": "Functional for iphone app",
 	"protocol": "rest",
-	"basePath": "https://awesome-list-api.herokuapp.com",
-	"publicPath": "/api",
+  "basePath": "https://awesome-list-api.herokuapp.com",
+  "publicPath": "/api",
 	"resources" : {
 		"Authentication": {
 			"methods": {
@@ -17,7 +17,7 @@
               "title":"key",
               "description":"Public key (priority)",
               "required": false,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "location": "body"
             },
@@ -124,7 +124,7 @@
               "title":"key",
               "description":"Public key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "location": "body"
             },
@@ -188,7 +188,7 @@
               "title":"key",
               "description":"Public key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "location": "param"
             }
@@ -207,7 +207,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "param"
@@ -231,7 +231,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "body"
@@ -297,7 +297,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "body"
@@ -371,7 +371,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "param"
@@ -399,7 +399,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "body"
@@ -423,7 +423,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "param"
@@ -447,7 +447,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "param"
@@ -475,7 +475,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "param"
@@ -491,7 +491,7 @@
             "key": {
               "title":"key",
               "required": true,
-              "default": "a94ded794cf0f564aa5721caf948db68",
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
               "type":"string",
               "description":"Public key",
               "location": "param"
