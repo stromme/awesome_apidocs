@@ -5,12 +5,12 @@
     "apiConfigDir" : "./public/data/",
     "debug" : false,
     "sessionSecret" : "12345",
-    /*"redis" : {
+    "redis" : {
         "host" : "localhost",
         "port" : 6379,
         "password" : "",
         "database" : "0"
-    },*/
+    },
     "https" : {
         "enabled": false,
         "keyPath": "/Path/to/my.key.pem",
