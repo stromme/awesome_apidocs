@@ -1,0 +1,22 @@
+{
+    "title" : "Awesome List I/O Docs",
+    "address": "127.0.0.1",
+    "port" : 3000,
+    "apiConfigDir" : "./public/data/",
+    "debug" : false,
+    "sessionSecret" : "12345",
+    /*"redis" : {
+        "host" : "localhost",
+        "port" : 6379,
+        "password" : "",
+        "database" : "0"
+    },*/
+    "https" : {
+        "enabled": false,
+        "keyPath": "/Path/to/my.key.pem",
+        "certPath": "/Path/to/my.crt.pem",
+        "caCertPath": "/Path/to/my.ca.crt.pem",
+        "requestCert": true,
+        "rejectUnauthorized": false
+    }
+}

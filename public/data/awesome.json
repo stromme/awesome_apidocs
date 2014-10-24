@@ -1,0 +1,504 @@
+{
+	"name": "Awesome List API",
+	"description": "Functional for iphone app",
+	"protocol": "rest",
+	"basePath": "https://awesome-list-api.herokuapp.com",
+	"publicPath": "/api",
+	"resources" : {
+		"Authentication": {
+			"methods": {
+				"authenticate": {
+					"name": "Authenticate User",
+					"description": "Input public key to extend public key expiration, or input username and password to login and receive public key to be used on all methods.",
+					"httpMethod": "POST",
+					"path": "/auth",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "description":"Public key (priority)",
+              "required": false,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "location": "body"
+            },
+            "username": {
+              "title":"username",
+              "description":"User login",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "password": {
+              "title":"password",
+              "description":"Password",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            }
+          }
+				},
+				"list": {
+					"name": "User List (demo only)",
+					"description": "List all users, this is for demo purpose. Upon LIVE this function will not exist.<br /><br />Session is key we used everytime.<br />All password are 'test'",
+					"httpMethod": "GET",
+					"path": "/users",
+          "parameters": {}
+				}
+			}
+    },
+		"Membership": {
+			"methods": {
+				"register_user": {
+					"name": "Register User",
+					"description": "Register new user or create new account. Username and email will be checked for existing account.",
+					"httpMethod": "POST",
+					"path": "/account",
+          "parameters": {
+            "username": {
+              "title":"username",
+              "description":"User login",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "firstname": {
+              "title":"firstname",
+              "description":"First name",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "lastname": {
+              "title":"lastname",
+              "description":"Last name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "email": {
+              "title":"email",
+              "description":"User email",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "password": {
+              "title":"password",
+              "description":"User password",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "company": {
+              "title":"company",
+              "description":"Company",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "location": {
+              "title":"location",
+              "description":"Location name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            }
+          }
+				},
+				"update_user": {
+					"name": "Update User",
+					"description": "Update user data. This method will return status failed if no data changes.",
+					"httpMethod": "PUT",
+					"path": "/account",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "description":"Public key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "location": "body"
+            },
+            "firstname": {
+              "title":"firstname",
+              "description":"First name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "lastname": {
+              "title":"lastname",
+              "description":"Last name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "email": {
+              "title":"email",
+              "description":"User email",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "password": {
+              "title":"password",
+              "description":"User password",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "company": {
+              "title":"company",
+              "description":"Company",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "location": {
+              "title":"location",
+              "description":"Location name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            }
+          }
+				},
+				"deactivate_user": {
+					"name": "Deactivate User",
+					"description": "Deactivate a user, not delete.",
+					"httpMethod": "DELETE",
+					"path": "/account",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "description":"Public key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "location": "param"
+            }
+          }
+				}
+			}
+    },
+		"Tasks": {
+			"methods": {
+				"get_tasks": {
+					"name": "Get Tasks or Single Task",
+					"description": "Get collection of tasks or single task if id is specified.",
+					"httpMethod": "GET",
+					"path": "/tasks/{id}",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "param"
+            },
+            "id": {
+              "title":"id",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "description":"Task id",
+              "location": "path"
+            }
+          }
+				},
+				"add_task": {
+					"name": "Add Task",
+					"description": "Assign new task to current user",
+					"httpMethod": "POST",
+					"path": "/tasks",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "body"
+            },
+            "title": {
+              "title":"title",
+              "description":"Task title",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "desc": {
+              "title":"desc",
+              "description":"Task description",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "public": {
+              "title":"public",
+              "description":"Task is public?",
+              "required": false,
+              "default": "",
+              "type":"boolean",
+              "booleanValues": ["1","0"],
+              "location": "body"
+            },
+            "done": {
+              "title":"done",
+              "description":"Task is done?",
+              "required": false,
+              "default": "",
+              "type":"boolean",
+              "booleanValues": ["1","0"],
+              "location": "body"
+            },
+            "due": {
+              "title":"due",
+              "description":"Task due date and time",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "location": {
+              "title":"location",
+              "description":"Location name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            }
+          }
+				},
+				"update_task": {
+					"name": "Update Task",
+					"description": "Update existing task",
+					"httpMethod": "PUT",
+					"path": "/tasks/{id}",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "body"
+            },
+            "id": {
+              "title":"id",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "description":"Task ID",
+              "location": "path"
+            },
+            "title": {
+              "title":"title",
+              "description":"Task title",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "desc": {
+              "title":"desc",
+              "description":"Task description",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "public": {
+              "title":"public",
+              "description":"Task is public?",
+              "required": false,
+              "default": "",
+              "type":"boolean",
+              "booleanValues": ["1","0"],
+              "location": "body"
+            },
+            "done": {
+              "title":"done",
+              "description":"Task is done?",
+              "required": false,
+              "default": "",
+              "type":"boolean",
+              "booleanValues": ["1","0"],
+              "location": "body"
+            },
+            "due": {
+              "title":"due",
+              "description":"Task due date and time",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            },
+            "location": {
+              "title":"location",
+              "description":"Location name",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "location": "body"
+            }
+          }
+				},
+				"delete_task": {
+					"name": "Delete Task",
+					"description": "Delete user task",
+					"httpMethod": "DELETE",
+					"path": "/tasks/{id}",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "param"
+            },
+            "id": {
+              "title":"id",
+              "required": true,
+              "default": "",
+              "type":"string",
+              "description":"Task ID",
+              "location": "path"
+            }
+          }
+				}
+			}
+    },
+		"Friendship": {
+			"methods": {
+				"connect": {
+					"name": "Connect",
+					"description": "Connect with a friend",
+					"httpMethod": "POST",
+					"path": "/friendship/{with}",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "body"
+            },
+            "with": {
+              "title":"with",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "description":"Friend username",
+              "location": "path"
+            }
+          }
+				},
+				"disconnect": {
+					"name": "Disconnect",
+					"description": "Disconnect a friend",
+					"httpMethod": "DELETE",
+					"path": "/friendship/{with}",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "param"
+            },
+            "with": {
+              "title":"with",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "description":"Friend username",
+              "location": "path"
+            }
+          }
+				},
+				"friendship_stats": {
+					"name": "Friendship Statistics",
+					"description": "Fetch friendship statistic, such as number of friends.\nReturning {status: 1, message: Success, friendship: {length: 1, friends: 4}}",
+					"httpMethod": "GET",
+					"path": "/friendship/{username}",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "param"
+            },
+            "username": {
+              "title":"username",
+              "required": false,
+              "default": "",
+              "type":"string",
+              "description":"Friend of",
+              "location": "path"
+            }
+          }
+				}
+			}
+    },
+    "Misc": {
+      "methods": {
+        "dashboard": {
+          "name": "Dashboard",
+          "description": "Return tasks on dashboard",
+          "httpMethod": "GET",
+          "path": "/dashboard",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "param"
+            }
+          }
+        },
+        "stats": {
+          "name": "Task Stats",
+          "description": "Return user task statistic",
+          "httpMethod": "GET",
+          "path": "/stats",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "required": true,
+              "default": "a94ded794cf0f564aa5721caf948db68",
+              "type":"string",
+              "description":"Public key",
+              "location": "param"
+            }
+          }
+        }
+      }
+    }
+	}
+}
