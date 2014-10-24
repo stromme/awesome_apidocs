@@ -1,6 +1,6 @@
 {
     "title" : "Awesome List I/O Docs",
-    "address": "awesome-apidocs.herokuapp.com",
+    "address": "127.0.0.1",
     "port" : 3000,
     "apiConfigDir" : "./public/data/",
     "debug" : false,
