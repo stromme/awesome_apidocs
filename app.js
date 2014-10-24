@@ -1260,3 +1260,7 @@ if (!module.parent) {
         }
     }
 }
+
+// use production (Heroku) port if set 
+var port = process.env.PORT || config.port; 
+app.listen(port, config.address);
