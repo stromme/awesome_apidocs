@@ -2,8 +2,8 @@
 	"name": "Awesome List API",
 	"description": "Functional for iphone app",
 	"protocol": "rest",
-  "basePath": "https://awesome-list-api.herokuapp.com",
-  "publicPath": "/api",
+	"basePath": "http://localhost",
+	"publicPath": "/awesome_list/api",
 	"resources" : {
 		"Authentication": {
 			"methods": {
@@ -38,18 +38,34 @@
               "location": "body"
             }
           }
-				},
-				"list": {
-					"name": "User List (demo only)",
-					"description": "List all users, this is for demo purpose. Upon LIVE this function will not exist.<br /><br />Session is key we used everytime.<br />All password are 'test'",
-					"httpMethod": "GET",
-					"path": "/users",
-          "parameters": {}
 				}
 			}
     },
 		"Membership": {
 			"methods": {
+        "list": {
+          "name": "User List",
+          "description": "List all users, this is for user list on app. Upon LIVE the session will not shown.<br /><br />Session is key we used everytime.<br />All password are 'test'",
+          "httpMethod": "GET",
+          "path": "/users",
+          "parameters": {}
+        },
+        "get_user": {
+          "name": "Get User Data",
+          "description": "Get user data. This method will return status failed if no data changes.",
+          "httpMethod": "GET",
+          "path": "/account",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "description":"Public key",
+              "required": true,
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
+              "type":"string",
+              "location": "param"
+            }
+          }
+        },
 				"register_user": {
 					"name": "Register User",
 					"description": "Register new user or create new account. Username and email will be checked for existing account.",
@@ -390,6 +406,22 @@
     },
 		"Friendship": {
 			"methods": {
+        "get_friends": {
+          "name": "Get Friends Of User",
+          "description": "Get friends of user. This method will return friends list.",
+          "httpMethod": "GET",
+          "path": "/friendship",
+          "parameters": {
+            "key": {
+              "title":"key",
+              "description":"Public key",
+              "required": true,
+              "default": "5f0238ca8e172ca8b692f30ad529c872",
+              "type":"string",
+              "location": "param"
+            }
+          }
+        },
 				"connect": {
 					"name": "Connect",
 					"description": "Connect with a friend",
