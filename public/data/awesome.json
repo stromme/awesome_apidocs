@@ -2,8 +2,8 @@
 	"name": "Awesome List API",
 	"description": "Functional for iphone app",
 	"protocol": "rest",
-	"basePath": "http://localhost",
-	"publicPath": "/awesome_list/api",
+	"basePath": "https://awesome-list-api.herokuapp.com",
+	"publicPath": "/api",
 	"resources" : {
 		"Authentication": {
 			"methods": {
