@@ -1,0 +1,1957 @@
+{
+  "authas": {
+    "oauth": {
+      "access_token_uri": "oauth2/access_token",
+      "authorize_uri": "oauth2/authenticate",
+      "base_uri": "https://app.nicework.io/",
+      "token": {
+          "location": "query",
+          "param": "oauth_token"
+      },
+      "type": "authorization_code",
+      "version": "2.0"
+    }
+  },
+	"name": "Nicework API",
+	"description": "Nicework App API Docs",
+	"protocol": "rest",
+	"basePath": "https://app.nicework.io",
+	"publicPath": "/0.1",
+	"resources" : {
+		"Reviews": {
+      "methods": {
+        "reviews_create": {
+          "name": "Reviews->create",
+          "description": "Create new review",
+          "httpMethod": "POST",
+          "path": "/reviews",
+          "parameters": {
+            "review": {
+              "title": "review",
+              "required": true,
+              "default": "Review content here",
+              "type": "string",
+              "description": "Review content",
+              "location": "param"
+            },
+            "rating": {
+              "title": "rating",
+              "required": true,
+              "default": 5,
+              "type": "integer",
+              "description": "Review rating",
+              "location": "param"
+            },
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Contact id",
+              "location": "param"
+            },
+            "project_id": {
+              "title": "project_id",
+              "required": false,
+              "default": 0,
+              "type": "integer",
+              "description": "Project id",
+              "location": "param"
+            },
+            "publish": {
+              "title": "publish",
+              "required": false,
+              "default": true,
+              "type": "boolean",
+              "description": "Review published or private",
+              "location": "param"
+            }
+          }
+        },
+        "reviews_update": {
+          "name": "Reviews->update",
+          "description": "Update a review",
+          "httpMethod": "PUT",
+          "path": "/reviews/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Review id",
+              "location": "path"
+            },
+            "review": {
+              "title": "review",
+              "required": true,
+              "default": "Review content here",
+              "type": "string",
+              "description": "Review content",
+              "location": "param"
+            },
+            "rating": {
+              "title": "rating",
+              "required": true,
+              "default": 5,
+              "type": "integer",
+              "description": "Review rating",
+              "location": "param"
+            },
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Contact id",
+              "location": "param"
+            },
+            "project_id": {
+              "title": "project_id",
+              "required": false,
+              "default": 0,
+              "type": "integer",
+              "description": "Project id",
+              "location": "param"
+            },
+            "publish": {
+              "title": "publish",
+              "required": false,
+              "default": true,
+              "type": "boolean",
+              "description": "Review published or private",
+              "location": "param"
+            }
+          }
+        },
+        "reviews_list": {
+          "name": "Reviews->list",
+          "description": "List or search reviews",
+          "httpMethod": "GET",
+          "path": "/reviews",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Review list filtering in JSON format: { date_range :string, per_page :int, page :int, project_id :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "reviews_get": {
+          "name": "Reviews->get",
+          "description": "Get a review",
+          "httpMethod": "GET",
+          "path": "/reviews/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Review id",
+              "location": "path"
+            }
+          }
+        },
+        "reviews_publish": {
+          "name": "Reviews->publish",
+          "description": "Publish a review",
+          "httpMethod": "PATCH",
+          "path": "/reviews/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Review id",
+              "location": "path"
+            },
+            "publish": {
+              "title": "publish",
+              "required": true,
+              "default": true,
+              "type": "boolean",
+              "description": "Review published or private",
+              "location": "param"
+            }
+          }
+        },
+        "reviews_delete": {
+          "name": "Reviews->delete",
+          "description": "Delete a review",
+          "httpMethod": "DELETE",
+          "path": "/reviews/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Review id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Projects": {
+      "methods": {
+        "projects_create": {
+          "name": "Projects->create",
+          "description": "Create new project",
+          "httpMethod": "POST",
+          "path": "/projects",
+          "parameters": {
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project contact id",
+              "location": "param"
+            },
+            "title": {
+              "title": "title",
+              "required": true,
+              "default": "Project title here",
+              "type": "string",
+              "description": "Project title",
+              "location": "param"
+            },
+            "location": {
+              "title": "location",
+              "required": true,
+              "default": "Vancouver",
+              "type": "string",
+              "description": "Project location name",
+              "location": "param"
+            },
+            "publish": {
+              "title": "publish",
+              "required": false,
+              "default": true,
+              "type": "boolean",
+              "description": "Project published or private",
+              "location": "param"
+            }
+          },
+          "unused_parameters": {
+            "photos": {
+              "title": "photos",
+              "required": true,
+              "default": "[]",
+              "type": "array",
+              "description": "Project photo",
+              "location": "header"
+            }
+          }
+        },
+        "projects_update": {
+          "name": "Projects->update",
+          "description": "Update project details",
+          "httpMethod": "PUT",
+          "path": "/projects/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project id",
+              "location": "path"
+            },
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project contact id",
+              "location": "param"
+            },
+            "title": {
+              "title": "title",
+              "required": true,
+              "default": "Project title here",
+              "type": "string",
+              "description": "Project title",
+              "location": "param"
+            },
+            "location": {
+              "title": "location",
+              "required": true,
+              "default": "Vancouver",
+              "type": "string",
+              "description": "Project location name",
+              "location": "param"
+            }
+          }
+        },
+        "projects_list": {
+          "name": "Projects->list",
+          "description": "List or search for projects",
+          "httpMethod": "GET",
+          "path": "/projects",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Project list filtering in JSON format: { date_range :string, per_page :int, page :int, project_id :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "projects_get": {
+          "name": "Projects->get",
+          "description": "Get a project",
+          "httpMethod": "GET",
+          "path": "/projects/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project id",
+              "location": "path"
+            }
+          }
+        },
+        "projects_publish": {
+          "name": "Projects->publish",
+          "description": "Publish a project",
+          "httpMethod": "PATCH",
+          "path": "/projects/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project id",
+              "location": "path"
+            },
+            "publish": {
+              "title": "publish",
+              "required": false,
+              "default": true,
+              "type": "boolean",
+              "description": "Project published or private",
+              "location": "param"
+            }
+          }
+        },
+        "projects_delete": {
+          "name": "Projects->delete",
+          "description": "Delete a project",
+          "httpMethod": "DELETE",
+          "path": "/projects/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Contacts": {
+      "methods": {
+        "contacts_create": {
+          "name": "Contacts->create",
+          "description": "Create new contact",
+          "httpMethod": "POST",
+          "path": "/contacts",
+          "parameters": {
+            "first_name": {
+              "title": "first_name",
+              "required": true,
+              "default": "Jason",
+              "type": "string",
+              "description": "First name",
+              "location": "param"
+            },
+            "last_name": {
+              "title": "last_name",
+              "required": true,
+              "default": "bourne",
+              "type": "string",
+              "description": "Last name",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "Email",
+              "location": "param"
+            },
+            "phone": {
+              "title": "phone",
+              "required": true,
+              "default": "+1234567890",
+              "type": "string",
+              "description": "Phone number",
+              "location": "param"
+            },
+            "location": {
+              "title": "location",
+              "required": true,
+              "default": "Vancouver",
+              "type": "string",
+              "description": "Location name",
+              "location": "param"
+            },
+            "company": {
+              "title": "company",
+              "required": false,
+              "default": "Window Gleam",
+              "type": "string",
+              "description": "Company name",
+              "location": "param"
+            }
+          }
+        },
+        "contacts_update": {
+          "name": "Contacts->update",
+          "description": "Create new contact",
+          "httpMethod": "PUT",
+          "path": "/contacts/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Contact id",
+              "location": "path"
+            },
+            "first_name": {
+              "title": "first_name",
+              "required": true,
+              "default": "Jason",
+              "type": "string",
+              "description": "First name",
+              "location": "param"
+            },
+            "last_name": {
+              "title": "last_name",
+              "required": true,
+              "default": "bourne",
+              "type": "string",
+              "description": "Last name",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "Email",
+              "location": "param"
+            },
+            "phone": {
+              "title": "phone",
+              "required": true,
+              "default": "+1234567890",
+              "type": "string",
+              "description": "Phone number",
+              "location": "param"
+            },
+            "location": {
+              "title": "location",
+              "required": true,
+              "default": "Vancouver",
+              "type": "string",
+              "description": "Location name",
+              "location": "param"
+            },
+            "company": {
+              "title": "company",
+              "required": false,
+              "default": "Window Gleam",
+              "type": "string",
+              "description": "Company name",
+              "location": "param"
+            }
+          }
+        },
+        "contacts_list": {
+          "name": "Contacts->list",
+          "description": "List or search for contacts",
+          "httpMethod": "GET",
+          "path": "/contacts",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Contact list and filtering in JSON format: { date_range :string, per_page :int, page :int, project_id :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "contacts_get": {
+          "name": "Contacts->get",
+          "description": "Get a contact",
+          "httpMethod": "GET",
+          "path": "/contacts/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Contact id",
+              "location": "path"
+            }
+          }
+        },
+        "contacts_import": {
+          "name": "Contacts->import",
+          "description": "Import contacts",
+          "httpMethod": "POST",
+          "path": "/contacts/import",
+          "parameters": {
+
+          }
+        },
+        "contacts_delete": {
+          "name": "Contacts->delete",
+          "description": "Delete a contact",
+          "httpMethod": "DELETE",
+          "path": "/contacts/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Contact id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Templates": {
+      "methods": {
+        "templates_create": {
+          "name": "Templates->create",
+          "description": "Create new template",
+          "httpMethod": "POST",
+          "path": "/templates",
+          "parameters": {
+            "name": {
+              "title": "name",
+              "required": true,
+              "default": "Review Template 1",
+              "type": "string",
+              "description": "Template name",
+              "location": "param"
+            },
+            "subject": {
+              "title": "subject",
+              "required": false,
+              "default": "Please review our service",
+              "type": "string",
+              "description": "Template email subject",
+              "location": "param"
+            },
+            "content": {
+              "title": "content",
+              "required": true,
+              "default": "<html><h1>Email title</h1><p>Email content</p></html>",
+              "type": "string",
+              "description": "Template content",
+              "location": "param"
+            },
+            "category": {
+              "title": "category",
+              "required": true,
+              "default": "",
+              "enum": ["review", "project"],
+              "type": "string",
+              "description": "Template category",
+              "location": "param"
+            },
+            "type": {
+              "title": "type",
+              "required": true,
+              "default": "email",
+              "enum": ["email", "sms"],
+              "type": "string",
+              "description": "Template type",
+              "location": "param"
+            }
+          }
+        },
+        "templates_update": {
+          "name": "Templates->update",
+          "description": "Create new template",
+          "httpMethod": "PUT",
+          "path": "/templates/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Template id",
+              "location": "path"
+            },
+            "name": {
+              "title": "name",
+              "required": true,
+              "default": "Review Template 1",
+              "type": "string",
+              "description": "Template name",
+              "location": "param"
+            },
+            "subject": {
+              "title": "subject",
+              "required": false,
+              "default": "Please review our service",
+              "type": "string",
+              "description": "Template email subject",
+              "location": "param"
+            },
+            "content": {
+              "title": "content",
+              "required": true,
+              "default": "<html><h1>Email title</h1><p>Email content</p></html>",
+              "type": "string",
+              "description": "Template content",
+              "location": "param"
+            }
+          }
+        },
+        "templates_list": {
+          "name": "Templates->list",
+          "description": "List or search for templates",
+          "httpMethod": "GET",
+          "path": "/templates",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Template list and filtering in JSON format: { date_range :string, per_page :int, page :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "templates_get": {
+          "name": "Templates->get",
+          "description": "Get a template",
+          "httpMethod": "GET",
+          "path": "/templates/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Template id",
+              "location": "path"
+            }
+          }
+        },
+        "templates_delete": {
+          "name": "Templates->delete",
+          "description": "Delete a template",
+          "httpMethod": "DELETE",
+          "path": "/templates/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Template id",
+              "location": "path"
+            }
+          }
+        },
+        "templates_get_stats": {
+          "name": "Templates->stats",
+          "description": "Get template statistics",
+          "httpMethod": "GET",
+          "path": "/templates/{id}/stats",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Template id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Activities": {
+      "methods": {
+        "activities_create": {
+          "name": "Activities->create",
+          "description": "Create new activity",
+          "httpMethod": "POST",
+          "path": "/activities",
+          "parameters": {
+            "object": {
+              "title": "object",
+              "required": true,
+              "default": "review",
+              "type": "string",
+              "enum": ["review", "project", "contact", "opportunity"],
+              "description": "Activity object",
+              "location": "param"
+            },
+            "object_id": {
+              "title": "object_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Activity object id",
+              "location": "param"
+            },
+            "verb": {
+              "title": "verb",
+              "required": true,
+              "default": "create",
+              "type": "string",
+              "enum": ["create", "update", "delete", "share"],
+              "description": "Activity verb",
+              "location": "param"
+            }
+          }
+        },
+        "activities_list": {
+          "name": "Activities->list",
+          "description": "List or search for activities",
+          "httpMethod": "GET",
+          "path": "/activities",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Template list and filtering in JSON format: { date_range :string, per_page :int, page :int, search :string, method :string }",
+              "location": "param"
+            },
+            "pretty": {
+              "title": "pretty",
+              "required": false,
+              "default": false,
+              "type": "boolean",
+              "description": "HTML formatted of the result",
+              "location": "param"
+            }
+          }
+        },
+        "activities_get": {
+          "name": "Activities->get",
+          "description": "Get an activity (THIS WILL BE DELETED)",
+          "httpMethod": "GET",
+          "path": "/activities/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Activity id",
+              "location": "path"
+            }
+          }
+        },
+        "activities_delete": {
+          "name": "Activities->delete",
+          "description": "Delete an activity",
+          "httpMethod": "DELETE",
+          "path": "/activities/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Activity id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Opportunities": {
+      "methods": {
+        "opportunities_create": {
+          "name": "Opportunities->create",
+          "description": "Create new opportunity",
+          "httpMethod": "POST",
+          "path": "/opportunities",
+          "parameters": {
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity contact id",
+              "location": "param"
+            },
+            "object": {
+              "title": "object",
+              "required": true,
+              "default": "review",
+              "type": "string",
+              "enum": ["review", "project", "contact", "opportunity"],
+              "description": "Activity object",
+              "location": "param"
+            },
+            "object_id": {
+              "title": "object_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity object id",
+              "location": "param"
+            },
+            "weight": {
+              "title": "weight",
+              "required": true,
+              "default": 100,
+              "type": "integer",
+              "description": "Opportunity weight",
+              "location": "param"
+            }
+          }
+        },
+        "opportunities_update": {
+          "name": "Opportunities->update",
+          "description": "Update an opportunity",
+          "httpMethod": "POST",
+          "path": "/opportunities/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id",
+              "location": "path"
+            },
+            "weight": {
+              "title": "weight",
+              "required": true,
+              "default": 100,
+              "type": "integer",
+              "description": "Opportunity weight",
+              "location": "param"
+            }
+          }
+        },
+        "opportunities_list": {
+          "name": "Opportunities->list",
+          "description": "List or search for opportunities",
+          "httpMethod": "GET",
+          "path": "/opportunities",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Opportunity list and filtering in JSON format: { date_range :string, per_page :int, page :int, search :string, method :string }",
+              "location": "param"
+            },
+            "pretty": {
+              "title": "pretty",
+              "required": false,
+              "default": false,
+              "type": "boolean",
+              "description": "HTML formatted of the result",
+              "location": "param"
+            }
+          }
+        },
+        "opportunities_get": {
+          "name": "Opportunities->get",
+          "description": "Get an opportunity",
+          "httpMethod": "GET",
+          "path": "/opportunities/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id",
+              "location": "path"
+            }
+          }
+        },
+        "opportunities_skip": {
+          "name": "Opportunities->skip",
+          "description": "Skip an opportunity",
+          "httpMethod": "DELETE",
+          "path": "/opportunities/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Emails": {
+      "methods": {
+        "emails_send": {
+          "name": "Emails->send",
+          "description": "Send an email",
+          "httpMethod": "POST",
+          "path": "/emails",
+          "parameters": {
+            "user_id": {
+              "title": "user_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Recipient user id",
+              "location": "param"
+            },
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Recipient contact id",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "Recipient email",
+              "location": "param"
+            },
+            "subject": {
+              "title": "subject",
+              "required": true,
+              "default": "Please review our service",
+              "type": "string",
+              "description": "Email subject",
+              "location": "param"
+            },
+            "content": {
+              "title": "content",
+              "required": true,
+              "default": "<html><h1>Email title</h1><p>Email content</p></html>",
+              "type": "string",
+              "description": "Email content",
+              "location": "param"
+            },
+            "opportunity_id": {
+              "title": "opportunity_id",
+              "required": false,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id from which the email sent",
+              "location": "param"
+            },
+            "create_activity": {
+              "title": "create_activity",
+              "required": true,
+              "default": true,
+              "type": "boolean",
+              "description": "Option to automatically create activity upon sending email",
+              "location": "param"
+            }
+          }
+        },
+        "emails_list": {
+          "name": "Emails->list",
+          "description": "List emails",
+          "httpMethod": "GET",
+          "path": "/emails",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Email list and filtering in JSON format: { date_range :string, per_page :int, page :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "emails_get": {
+          "name": "Emails->get",
+          "description": "Get an email details and statistics",
+          "httpMethod": "GET",
+          "path": "/emails/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Email id",
+              "location": "path"
+            }
+          }
+        },
+        "emails_stats_update": {
+          "name": "Emails->stats_update",
+          "description": "Update email template stats",
+          "httpMethod": "PUT",
+          "path": "/emails/{id}/stats_update",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Email id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "SMS": {
+      "methods": {
+        "sms_send": {
+          "name": "SMS->send",
+          "description": "Send a text message (SMS)",
+          "httpMethod": "POST",
+          "path": "/sms",
+          "parameters": {
+            "user_id": {
+              "title": "user_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "User id of the recipient",
+              "location": "param"
+            },
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Contact id of the recipient",
+              "location": "param"
+            },
+            "opportunity_id": {
+              "title": "opportunity_id",
+              "required": false,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id from which the text message sent",
+              "location": "param"
+            },
+            "recipient": {
+              "title": "recipient",
+              "required": true,
+              "default": "+1234567890",
+              "type": "integer",
+              "description": "Recipient phone number",
+              "location": "param"
+            },
+            "message": {
+              "title": "message",
+              "required": true,
+              "default": "Text message content here",
+              "type": "integer",
+              "description": "Text message content",
+              "location": "param"
+            }
+          }
+        }
+      }
+    },
+    "SocialAccounts": {
+      "methods": {
+        "social_share": {
+          "name": "Social->create",
+          "description": "Create new opportunity",
+          "httpMethod": "POST",
+          "path": "/social",
+          "parameters": {
+            "user_id": {
+              "title": "user_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Social account owner user id",
+              "location": "param"
+            },
+            "contact_id": {
+              "title": "contact_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Social account owner contact id",
+              "location": "param"
+            },
+            "opportunity_id": {
+              "title": "opportunity_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id from which the item to share",
+              "location": "param"
+            },
+            "project_id": {
+              "title": "project_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Project to share",
+              "location": "param"
+            },
+            "twitter": {
+              "title": "twitter",
+              "required": true,
+              "default": true,
+              "type": "boolean",
+              "description": "Share to Twitter",
+              "location": "param"
+            },
+            "facebook": {
+              "title": "facebook",
+              "required": true,
+              "default": true,
+              "type": "boolean",
+              "description": "Share to Facebook",
+              "location": "param"
+            },
+            "linkedin": {
+              "title": "linkedin",
+              "required": true,
+              "default": true,
+              "type": "boolean",
+              "description": "Share to LinkedIn",
+              "location": "param"
+            },
+            "googleplus": {
+              "title": "googleplus",
+              "required": true,
+              "default": true,
+              "type": "boolean",
+              "description": "Share to Google Plus",
+              "location": "param"
+            }
+          }
+        },
+        "social_authenticate": {
+          "name": "Social->authenticate",
+          "description": "Add a social media account",
+          "httpMethod": "POST",
+          "path": "/social/{network}",
+          "parameters": {
+            "network": {
+              "title": "network",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "enum": ["twitter", "facebook", "linkedin", "googleplus"],
+              "description": "Network to authenticate",
+              "location": "path"
+            },
+            "authentication_settings": {
+              "title": "authentication_setting",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "String JSON format of the authentication settings",
+              "location": "param"
+            }
+          }
+        },
+        "social_deauthenticate": {
+          "name": "Social->deauthenticate",
+          "description": "Delete or deauthenticate social media account",
+          "httpMethod": "DELETE",
+          "path": "/social/{network}",
+          "parameters": {
+            "network": {
+              "title": "network",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "enum": ["twitter", "facebook", "linkedin", "googleplus"],
+              "description": "Social media to deauthenticate",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Users": {
+      "methods": {
+        "users_create": {
+          "name": "Users->create",
+          "description": "Create new user",
+          "httpMethod": "POST",
+          "path": "/users",
+          "parameters": {
+            "username": {
+              "title": "username",
+              "required": true,
+              "default": "testuser",
+              "type": "string",
+              "description": "Username",
+              "location": "param"
+            },
+            "first_name": {
+              "title": "first_name",
+              "required": true,
+              "default": "Jason",
+              "type": "string",
+              "description": "First name",
+              "location": "param"
+            },
+            "last_name": {
+              "title": "last_name",
+              "required": true,
+              "default": "Bourne",
+              "type": "string",
+              "description": "Last name",
+              "location": "param"
+            },
+            "password": {
+              "title": "password",
+              "required": true,
+              "default": "1234567890",
+              "type": "string",
+              "description": "Password",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "User email",
+              "location": "param"
+            },
+            "phone": {
+              "title": "phone",
+              "required": true,
+              "default": "+1234567890",
+              "type": "string",
+              "description": "User phone number",
+              "location": "param"
+            },
+            "role": {
+              "title": "role",
+              "required": true,
+              "default": "manager",
+              "type": "string",
+              "enum": ["owner", "manager", "editor"],
+              "description": "User role",
+              "location": "param"
+            },
+            "account_id": {
+              "title": "account_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Account ID to which the user will be added",
+              "location": "param"
+            }
+          }
+        },
+        "users_update": {
+          "name": "Users->update",
+          "description": "Update user details",
+          "httpMethod": "PUT",
+          "path": "/users/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "User id",
+              "location": "path"
+            },
+            "username": {
+              "title": "username",
+              "required": true,
+              "default": "testuser",
+              "type": "string",
+              "description": "Username",
+              "location": "param"
+            },
+            "first_name": {
+              "title": "first_name",
+              "required": true,
+              "default": "Jason",
+              "type": "string",
+              "description": "First name",
+              "location": "param"
+            },
+            "last_name": {
+              "title": "last_name",
+              "required": true,
+              "default": "Bourne",
+              "type": "string",
+              "description": "Last name",
+              "location": "param"
+            },
+            "password": {
+              "title": "password",
+              "required": true,
+              "default": "1234567890",
+              "type": "string",
+              "description": "Password",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "User email",
+              "location": "param"
+            },
+            "phone": {
+              "title": "phone",
+              "required": true,
+              "default": "+1234567890",
+              "type": "string",
+              "description": "User phone number",
+              "location": "param"
+            },
+            "role": {
+              "title": "role",
+              "required": true,
+              "default": "manager",
+              "type": "string",
+              "enum": ["owner", "manager", "editor"],
+              "description": "User role",
+              "location": "param"
+            }
+          }
+        },
+        "users_list": {
+          "name": "Users->list",
+          "description": "List or search users",
+          "httpMethod": "GET",
+          "path": "/users",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Filter to search users in string JSON format",
+              "location": "param"
+            }
+          }
+        },
+        "users_get": {
+          "name": "Users->get",
+          "description": "Get a user",
+          "httpMethod": "GET",
+          "path": "/users/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "User id",
+              "location": "path"
+            }
+          }
+        },
+        "users_delete": {
+          "name": "Users->delete",
+          "description": "Delete a user",
+          "httpMethod": "DELETE",
+          "path": "/users/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "User id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Locations": {
+      "methods": {
+        "locations_create": {
+          "name": "Locations->create",
+          "description": "Add new location",
+          "httpMethod": "POST",
+          "path": "/locations",
+          "parameters": {
+            "name": {
+              "title": "name",
+              "required": true,
+              "default": "Paddington, VA",
+              "type": "string",
+              "description": "Location name",
+              "location": "param"
+            },
+            "address": {
+              "title": "address",
+              "required": true,
+              "default": "Paddington Street. Paddington, VA",
+              "type": "string",
+              "description": "Location address",
+              "location": "param"
+            },
+            "city": {
+              "title": "city",
+              "required": true,
+              "default": "Paddington",
+              "type": "string",
+              "description": "Location city",
+              "location": "param"
+            },
+            "state": {
+              "title": "state",
+              "required": true,
+              "default": "Vancouver",
+              "type": "string",
+              "description": "Location state",
+              "location": "param"
+            },
+            "zip": {
+              "title": "zip",
+              "required": true,
+              "default": "12345",
+              "type": "string",
+              "description": "Location zip or postal code",
+              "location": "param"
+            },
+            "phone": {
+              "title": "phone",
+              "required": true,
+              "default": "+1234567890",
+              "type": "string",
+              "description": "Location phone number",
+              "location": "param"
+            },
+            "social_pages": {
+              "title": "social_pages",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "String JSON format of social pages",
+              "location": "param"
+            },
+            "review_site_pages": {
+              "title": "review_site_pages",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "String JSON format of review site pages",
+              "location": "param"
+            }
+          }
+        },
+        "locations_update": {
+          "name": "Locations->update",
+          "description": "Update location details",
+          "httpMethod": "POST",
+          "path": "/locations/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Opportunity id",
+              "location": "path"
+            },
+            "name": {
+              "title": "name",
+              "required": true,
+              "default": "Paddington, VA",
+              "type": "string",
+              "description": "Location name",
+              "location": "param"
+            },
+            "address": {
+              "title": "address",
+              "required": true,
+              "default": "Paddington Street. Paddington, VA",
+              "type": "string",
+              "description": "Location address",
+              "location": "param"
+            },
+            "city": {
+              "title": "city",
+              "required": true,
+              "default": "Paddington",
+              "type": "string",
+              "description": "Location city",
+              "location": "param"
+            },
+            "state": {
+              "title": "state",
+              "required": true,
+              "default": "Vancouver",
+              "type": "string",
+              "description": "Location state",
+              "location": "param"
+            },
+            "zip": {
+              "title": "zip",
+              "required": true,
+              "default": "12345",
+              "type": "string",
+              "description": "Location zip or postal code",
+              "location": "param"
+            },
+            "phone": {
+              "title": "phone",
+              "required": true,
+              "default": "+1234567890",
+              "type": "string",
+              "description": "Location phone number",
+              "location": "param"
+            },
+            "social_pages": {
+              "title": "social_pages",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "String JSON format of social pages",
+              "location": "param"
+            },
+            "review_site_pages": {
+              "title": "review_site_pages",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "String JSON format of review site pages",
+              "location": "param"
+            }
+          }
+        },
+        "locations_list": {
+          "name": "Locations->list",
+          "description": "List or search for locations",
+          "httpMethod": "GET",
+          "path": "/locations",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Locations list and filtering in JSON format: { date_range :string, per_page :int, page :int, account_id :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "locations_get": {
+          "name": "Locations->get",
+          "description": "Get a location",
+          "httpMethod": "GET",
+          "path": "/locations/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Location id",
+              "location": "path"
+            }
+          }
+        },
+        "locations_delete": {
+          "name": "Locations->delete",
+          "description": "Delete a location",
+          "httpMethod": "DELETE",
+          "path": "/locations/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Location id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Accounts": {
+      "methods": {
+        "accounts_create": {
+          "name": "Accounts->create",
+          "description": "Create new account",
+          "httpMethod": "POST",
+          "path": "/accounts",
+          "parameters": {
+            "username": {
+              "title": "username",
+              "required": true,
+              "default": "jasonbourne",
+              "type": "string",
+              "description": "Username of the new user account",
+              "location": "param"
+            },
+            "first_name": {
+              "title": "first_name",
+              "required": true,
+              "default": "Jason",
+              "type": "string",
+              "description": "First name of the new user account",
+              "location": "param"
+            },
+            "last_name": {
+              "title": "last_name",
+              "required": true,
+              "default": "Bourne",
+              "type": "string",
+              "description": "Last name of the new user account",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "Email of the new user account",
+              "location": "param"
+            }
+          }
+        },
+        "accounts_update": {
+          "name": "Accounts->update",
+          "description": "Update an account details",
+          "httpMethod": "POST",
+          "path": "/accounts/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Account id",
+              "location": "path"
+            },
+            "username": {
+              "title": "username",
+              "required": true,
+              "default": "jasonbourne",
+              "type": "string",
+              "description": "Username of the new user account",
+              "location": "param"
+            },
+            "first_name": {
+              "title": "first_name",
+              "required": true,
+              "default": "Jason",
+              "type": "string",
+              "description": "First name of the new user account",
+              "location": "param"
+            },
+            "last_name": {
+              "title": "last_name",
+              "required": true,
+              "default": "Bourne",
+              "type": "string",
+              "description": "Last name of the new user account",
+              "location": "param"
+            },
+            "email": {
+              "title": "email",
+              "required": true,
+              "default": "jason.bourne@mailinator.com",
+              "type": "string",
+              "description": "Email of the new user account",
+              "location": "param"
+            }
+          }
+        },
+        "accounts_list": {
+          "name": "Accounts->list",
+          "description": "List or search for accounts",
+          "httpMethod": "GET",
+          "path": "/accounts",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Account list and filtering in JSON format: { date_range :string, per_page :int, page :int, search :string, method :string }",
+              "location": "param"
+            }
+          }
+        },
+        "accounts_get": {
+          "name": "Accounts->get",
+          "description": "Get an account",
+          "httpMethod": "GET",
+          "path": "/accounts/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Account id",
+              "location": "path"
+            }
+          }
+        },
+        "accounts_delete": {
+          "name": "Accounts->delete",
+          "description": "Cancel account membership",
+          "httpMethod": "DELETE",
+          "path": "/accounts/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Account id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Preferences": {
+      "methods": {
+        "preferences_create": {
+          "name": "Preferences->add",
+          "description": "Add new preference",
+          "httpMethod": "POST",
+          "path": "/preferences",
+          "parameters": {
+            "user_id": {
+              "title": "user_id",
+              "required": true,
+              "default": 1,
+              "type": "string",
+              "description": "User id",
+              "location": "param"
+            },
+            "location_id": {
+              "title": "location_id",
+              "required": true,
+              "default": 1,
+              "type": "string",
+              "description": "Location id",
+              "location": "param"
+            },
+            "name": {
+              "title": "name",
+              "required": true,
+              "default": 1,
+              "type": "string",
+              "description": "Preference name",
+              "location": "param"
+            },
+            "type": {
+              "title": "type",
+              "required": true,
+              "default": "string",
+              "type": "string",
+              "enum": ["string", "integer", "boolean", "float"],
+              "description": "Value type",
+              "location": "param"
+            },
+            "value": {
+              "title": "value",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "Value type",
+              "location": "param"
+            },
+            "description": {
+              "title": "description",
+              "required": false,
+              "default": "Preference desc",
+              "type": "string",
+              "description": "Preference description",
+              "location": "param"
+            }
+          }
+        },
+        "preferences_update": {
+          "name": "Opportunities->update",
+          "description": "Update a preference name and value",
+          "httpMethod": "POST",
+          "path": "/preferences/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Preference id",
+              "location": "path"
+            },
+            "name": {
+              "title": "name",
+              "required": true,
+              "default": 1,
+              "type": "string",
+              "description": "Preference name",
+              "location": "param"
+            },
+            "type": {
+              "title": "type",
+              "required": true,
+              "default": "string",
+              "type": "string",
+              "enum": ["string", "integer", "boolean", "float"],
+              "description": "Value type",
+              "location": "param"
+            },
+            "value": {
+              "title": "value",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "Value type",
+              "location": "param"
+            },
+            "description": {
+              "title": "description",
+              "required": false,
+              "default": "Preference desc",
+              "type": "string",
+              "description": "Preference description",
+              "location": "param"
+            }
+          }
+        },
+        "preferences_list": {
+          "name": "Preferences->list",
+          "description": "List or search for preferences",
+          "httpMethod": "GET",
+          "path": "/preferences",
+          "parameters": {
+            "filters": {
+              "title": "filters",
+              "required": false,
+              "default": "",
+              "type": "string",
+              "description": "Preferences list",
+              "location": "param"
+            }
+          }
+        },
+        "preferences_get": {
+          "name": "Preferences->get",
+          "description": "Get a preference",
+          "httpMethod": "GET",
+          "path": "/preferences/{:id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Preference id",
+              "location": "path"
+            }
+          }
+        },
+        "preferences_delete": {
+          "name": "Preferences->skip",
+          "description": "Delete a preference",
+          "httpMethod": "DELETE",
+          "path": "/preferences/{id}",
+          "parameters": {
+            "id": {
+              "title": "id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Preference id",
+              "location": "path"
+            }
+          }
+        }
+      }
+    },
+    "Crawler": {
+      "methods": {
+        "crawler_update": {
+          "name": "Opportunities->update",
+          "description": "Post crawler result",
+          "httpMethod": "POST",
+          "path": "/crawler",
+          "parameters": {
+            "user_id": {
+              "title": "user_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "User id",
+              "location": "param"
+            },
+            "location_id": {
+              "title": "location_id",
+              "required": true,
+              "default": 1,
+              "type": "integer",
+              "description": "Location id",
+              "location": "param"
+            },
+            "review_site": {
+              "title": "review_site",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "enum": ["yelp", "google", "facebook", "angieslist"],
+              "description": "Review site",
+              "location": "param"
+            },
+            "object": {
+              "title": "object",
+              "required": true,
+              "default": "",
+              "type": "string",
+              "description": "String JSON format of the review values",
+              "location": "param"
+            }
+          }
+        }
+      }
+    }
+	}
+}

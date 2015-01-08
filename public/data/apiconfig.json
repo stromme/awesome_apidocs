@@ -1,7 +1,10 @@
 {
     "awesome": {
         "name": "Awesome List API"
-    }/*,
+    },
+    "nicework": {
+        "name": "Nicework API"
+    },
     "klout": {
         "name": "Klout v2 API"
     },
@@ -22,5 +25,5 @@
     },
     "requestbin": {
         "name": "Requestb.in"
-    }*/
+    }
 }
