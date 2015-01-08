@@ -1,5 +1,9 @@
 {
-  "authas": {
+	"name": "Nicework API",
+	"description": "Nicework App API Docs",
+	"protocol": "rest",
+	"basePath": "https://app.nicework.io",
+  "auth": {
     "oauth": {
       "access_token_uri": "oauth2/access_token",
       "authorize_uri": "oauth2/authenticate",
@@ -12,10 +16,6 @@
       "version": "2.0"
     }
   },
-	"name": "Nicework API",
-	"description": "Nicework App API Docs",
-	"protocol": "rest",
-	"basePath": "https://app.nicework.io",
 	"publicPath": "/0.1",
 	"resources" : {
 		"Reviews": {
